@@ -1,0 +1,64 @@
+/* Root container */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #95fe89 0%, #66a6ff 100%);
+  min-height: 100vh;
+}
+
+/* Card style */
+.card {
+  background: #f5f5dc;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: rgba(14, 194, 38, 0.2) 0px 8px 20px;
+  border-radius: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Input field */
+.input-field {
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  box-shadow: rgba(9, 12, 181, 0.35) 0px 5px 15px;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 250px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.input-field:focus {
+  box-shadow: rgba(204, 14, 14, 0.6) 0px 5px 20px;
+}
+
+/* Button */
+.button {
+  background: linear-gradient(135deg, #0fc84d, #c5510d);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  color: rgb(64, 7, 156);
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  transform: scale(1.05);
+}
+
+/* Weather info text */
+.read-the-docs {
+  color: #333;
+  font-size: 14px;
+  opacity: 0.8;
+}
