@@ -62,3 +62,19 @@
   font-size: 14px;
   opacity: 0.8;
 }
+
+.temperature {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00d4ff;  /* make number visible on black background */
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.temperature span {
+  font-size: 1.2rem;
+  color: #ffffff; /* white °C */
+}
+
