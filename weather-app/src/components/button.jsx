@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Button = (props) => {
-  // handle Enter key press
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      props.onClick();
-    }
-  };
+  // Listen for Enter key globally
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        props.onClick();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [props]);
 
   return (
-    <button
-      className="button"
-      onClick={props.onClick}
-      onKeyDown={handleKeyDown}   // 👈 added here
-    >
+    <button className="button" onClick={props.onClick}>
       {props.value}
     </button>
   );
