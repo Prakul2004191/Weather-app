@@ -1,23 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import Button from "./Button";
+import { useweather } from "../context/weather";
 
-const Button = (props) => {
-  // Listen for Enter key globally
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Enter") {
-        props.onClick();
-      }
-    };
+const SearchBox = () => {
+  const [city, setCity] = useState("");
+  const weather = useweather();
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [props]);
+  const handleSearch = () => {
+    if (city.trim() !== "") {
+      weather.fetchWeather(city); // your context API call
+    }
+  };
 
   return (
-    <button className="button" onClick={props.onClick}>
-      {props.value}
-    </button>
+    <div>
+      <input
+        className="input-field"
+        type="text"
+        placeholder="Enter city name"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSearch(); // 👈 Pressing Enter = same as clicking Button
+          }
+        }}
+      />
+      <Button value="Search" onClick={handleSearch} />
+    </div>
   );
 };
 
-export default Button;
+export default SearchBox;
